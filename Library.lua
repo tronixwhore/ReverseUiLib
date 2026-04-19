@@ -3137,23 +3137,4 @@ do
 		ScreenGui.Enabled = visible
 	end
 end
-
-local draw_3d = loadstring(game:HttpGet("https://raw.githubusercontent.com/Blissful4992/ESPs/main/3D%20Drawing%20Api.lua"))()
-
-local cache = {
-	ping = 0,
-	strafe_angle = 0,
-	camera_cframe = CFrame.new(),
-	force_cframe = nil,
-	stomp_delay = false,
-	world_time = lighting.ClockTime,
-	fog_color = lighting.FogColor,
-	fog_start = lighting.FogStart,
-	fog_end = lighting.FogEnd,
-	world_hue = lighting.Ambient,
-	compensation = lighting.ExposureCompensation,
-	auto_kill = false,
-	auto_ready = false,
-	viewed_player = nil,
-	whitelisted = {}
-}
+return lib
