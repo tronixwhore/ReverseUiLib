@@ -1389,7 +1389,7 @@
                 info = options.info or nil,
                 flag = options.flag or library:next_flag(),
                 
-                type = options.type and string.lower(options.type) or rand == 1 and "toggle" or "checkbox"; -- "toggle", "checkbox"
+                type = "toggle"
 
                 default = options.default or false,
                 folding = options.folding or false, 
@@ -1477,8 +1477,64 @@
                     SortOrder = Enum.SortOrder.LayoutOrder
                 });
                 
-                -- Toggle
                     if cfg.type == "checkbox" then 
+                        items[ "toggle_button" ] = library:create( "TextButton" , {
+                            FontFace = fonts.small;
+                            TextColor3 = rgb(0, 0, 0);
+                            BorderColor3 = rgb(0, 0, 0);
+                            Text = "";
+                            LayoutOrder = 2;
+                            AutoButtonColor = false;
+                            AnchorPoint = vec2(1, 0);
+                            Parent = items[ "right_components" ];
+                            Name = "\0";
+                            Position = dim2(1, 0, 0, 0);
+                            Size = dim2(0, 16, 0, 16);
+                            BorderSizePixel = 0;
+                            TextSize = 14;
+                            BackgroundColor3 = rgb(67, 67, 68)
+                        }); library:apply_theme(items[ "toggle_button" ], "accent", "BackgroundColor3");
+                        
+                        library:create( "UICorner" , {
+                            Parent = items[ "toggle_button" ];
+                            CornerRadius = dim(0, 4)
+                        });
+                        
+                        items[ "outline" ] = library:create( "Frame" , {
+                            Parent = items[ "toggle_button" ];
+                            Size = dim2(1, -2, 1, -2);
+                            Name = "\0";
+                            BorderMode = Enum.BorderMode.Inset;
+                            BorderColor3 = rgb(0, 0, 0);
+                            Position = dim2(0, 1, 0, 1);
+                            BorderSizePixel = 0;
+                            BackgroundColor3 = rgb(22, 22, 24)
+                        }); library:apply_theme(items[ "outline" ], "accent", "BackgroundColor3");
+                        
+                        items[ "tick" ] = library:create( "ImageLabel" , {
+                            ImageTransparency = 1;
+                            BorderColor3 = rgb(0, 0, 0);
+                            Image = "rbxassetid://111862698467575";
+                            BackgroundTransparency = 1;
+                            Position = dim2(0, -1, 0, 0);
+                            Parent = items[ "outline" ];
+                            Size = dim2(1, 2, 1, 2);
+                            BorderSizePixel = 0;
+                            BackgroundColor3 = rgb(255, 255, 255);
+                            ZIndex = 1;
+                        });
+
+                        library:create( "UICorner" , {
+                            Parent = items[ "outline" ];
+                            CornerRadius = dim(0, 4)
+                        });
+                        
+                        library:create( "UIGradient" , {
+                            Enabled = false;
+                            Parent = items[ "outline" ];
+                            Color = rgbseq{rgbkey(0, rgb(211, 211, 211)), rgbkey(1, rgb(211, 211, 211))}
+                        });  
+                    else 
                         items[ "toggle_button" ] = library:create( "TextButton" , {
                             FontFace = fonts.font;
                             TextColor3 = rgb(0, 0, 0);
@@ -1541,6 +1597,10 @@
             
             function cfg.set(bool)
                 if cfg.type == "checkbox" then 
+                    library:tween(items[ "tick" ], {Rotation = bool and 0 or 45, ImageTransparency = bool and 0 or 1})
+                    library:tween(items[ "toggle_button" ], {BackgroundColor3 = bool and themes.preset.accent or rgb(67, 67, 68)})
+                    library:tween(items[ "outline" ], {BackgroundColor3 = bool and themes.preset.accent or rgb(22, 22, 24)})
+                else
                     library:tween(items[ "toggle_button" ], {BackgroundColor3 = bool and themes.preset.accent or rgb(58, 58, 62)}, Enum.EasingStyle.Quad)
                     library:tween(items[ "inline" ], {BackgroundColor3 = bool and themes.preset.accent or rgb(50, 50, 50)}, Enum.EasingStyle.Quad)
                     library:tween(items[ "circle" ], {BackgroundColor3 = bool and rgb(255, 255, 255) or rgb(86, 86, 88), Position = bool and dim2(1, -14, 0, 2) or dim2(0, 2, 0, 2)}, Enum.EasingStyle.Quad)
