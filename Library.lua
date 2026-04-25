@@ -1,7 +1,3 @@
-local getgenv = getgenv or function()
-    return shared
-end
-
 --[[
 
     Milenium Library
@@ -72,7 +68,7 @@ end
 
 -- Library init
     getgenv().library = {
-        directory = "milenium",
+        directory = "EUPHRIAsu",
         folders = {
             "/fonts",
             "/configs",
@@ -3726,4 +3722,7 @@ end
                 items[ "notification" ]:Destroy() 
             end)
         end
+    --
+-- 
+
 return library
