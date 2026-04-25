@@ -1,5 +1,5 @@
 --[[
-
+12322222222222222222222233123123123
     Milenium Library
     -> Made by @finobe 
     -> Kind of got bored idk what to do with life
@@ -1905,7 +1905,7 @@
 
         function library:dropdown(options) 
             local cfg = {
-                name = options.name or nil;
+                name = options.name or "Dropdown";
                 info = options.info or nil;
                 flag = options.flag or library:next_flag();
                 options = options.items or {""};
@@ -1949,7 +1949,7 @@
                         FontFace = fonts.small;
                         TextColor3 = rgb(245, 245, 245);
                         BorderColor3 = rgb(0, 0, 0);
-                        Text = "Dropdown";
+                        Text = cfg.name;
                         Parent = items[ "dropdown_object" ];
                         Name = "\0";
                         Size = dim2(1, 0, 0, 0);
