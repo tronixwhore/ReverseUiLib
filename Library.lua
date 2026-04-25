@@ -1,4 +1,4 @@
---[[aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+--[[
 
     Milenium Library
     -> Made by @finobe 
@@ -2335,7 +2335,7 @@
                 name = options.name or "Color", 
                 flag = options.flag or library:next_flag(),
 
-                color = options.color or color(1, 1, 1), -- Default to white color if not provided
+                color = options.color or color(255, 106, 106), -- Default to white color if not provided
                 alpha = options.alpha and 1 - options.alpha or 0,
                 
                 open = false, 
