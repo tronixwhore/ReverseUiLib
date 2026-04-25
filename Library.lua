@@ -1,5 +1,5 @@
---[[
-2222222222222222222222222222222222222222222222222222222222222222222222
+--[[111111111111111111111111111111111111111111111111111111111111111111111111111111111
+
     Milenium Library
     -> Made by @finobe 
     -> Kind of got bored idk what to do with life
@@ -1922,7 +1922,7 @@
                 ignore = options.ignore or false;
                 items = {};
                 y_size;
-                seperator = options.seperator or options.Seperator or true;
+                seperator = options.seperator or options.Seperator;
             }   
 
             cfg.default = options.default or (cfg.multi and {cfg.items[1]}) or cfg.items[1] or "None"
