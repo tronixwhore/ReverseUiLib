@@ -1,4 +1,4 @@
---[[
+--[[--------------------------
 
     Milenium Library
     -> Made by @finobe 
@@ -1338,37 +1338,6 @@
                         CornerRadius = dim(0, 999)
                     });
                     
-                    items[ "toggle_outline" ] = library:create( "Frame" , {
-                        Parent = items[ "toggle" ];
-                        Size = dim2(1, -2, 1, -2);
-                        Name = "\0";
-                        BorderMode = Enum.BorderMode.Inset;
-                        BorderColor3 = rgb(0, 0, 0);
-                        Position = dim2(0, 1, 0, 1);
-                        BorderSizePixel = 0;
-                        BackgroundColor3 = rgb(50, 50, 50)
-                    });  library:apply_theme(items[ "toggle_outline" ], "accent", "BackgroundColor3");
-                    
-                    library:create( "UICorner" , {
-                        Parent = items[ "toggle_outline" ];
-                        CornerRadius = dim(0, 999)
-                    });
-                    
-                    library:create( "UIGradient" , {
-                        Color = rgbseq{rgbkey(0, rgb(211, 211, 211)), rgbkey(1, rgb(211, 211, 211))};
-                        Parent = items[ "toggle_outline" ]
-                    });
-                    
-                    items[ "toggle_circle" ] = library:create( "Frame" , {
-                        Parent = items[ "toggle_outline" ];
-                        Name = "\0";
-                        Position = dim2(0, 2, 0, 2);
-                        BorderColor3 = rgb(0, 0, 0);
-                        Size = dim2(0, 12, 0, 12);
-                        BorderSizePixel = 0;
-                        BackgroundColor3 = rgb(86, 86, 88)
-                    });
-                    
                     library:create( "UICorner" , {
                         Parent = items[ "toggle_circle" ];
                         CornerRadius = dim(0, 999)
@@ -1404,7 +1373,6 @@
 
                 function cfg.toggle_section(bool)
                     library:tween(items[ "toggle" ], {BackgroundColor3 = bool and themes.preset.accent or rgb(58, 58, 62)}, Enum.EasingStyle.Quad)
-                    library:tween(items[ "toggle_outline" ], {BackgroundColor3 = bool and themes.preset.accent or rgb(50, 50, 50)}, Enum.EasingStyle.Quad)
                     library:tween(items[ "toggle_circle" ], {BackgroundColor3 = bool and rgb(255, 255, 255) or rgb(86, 86, 88), Position = bool and dim2(1, -14, 0, 2) or dim2(0, 2, 0, 2)}, Enum.EasingStyle.Quad)
                     library:tween(items[ "fade" ], {BackgroundTransparency = bool and 1 or 0.8}, Enum.EasingStyle.Quad)
                 end 
