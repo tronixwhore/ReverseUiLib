@@ -1,4 +1,4 @@
---[[
+--[[asdffffffffffffffffffffffffff
 
     Milenium Library
     -> Made by @finobe 
@@ -502,7 +502,8 @@
                 size = properties.size or properties.Size or dim2(0, 700, 0, 565);
                 selected_tab;
                 items = {};
-
+                menu_key = properties.menu_key or Enum.KeyCode.RightControl;
+                menu_open = true;
                 tween;
             }
             
@@ -742,7 +743,16 @@
                 
                 library[ "items" ].Enabled = bool
             end 
-                
+            local UserInputService = game:GetService("UserInputService")
+
+            UserInputService.InputBegan:Connect(function(input, gp)
+                if gp then return end
+
+                if input.KeyCode == cfg.menu_key then
+                    cfg.menu_open = not cfg.menu_open
+                    cfg.toggle_menu(cfg.menu_open)
+                end
+            end)
             return setmetatable(cfg, library)
         end 
 
