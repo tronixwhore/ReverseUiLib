@@ -1,4 +1,4 @@
---[[111111111111111111111111111111111111111111111111111111111111111111111111111111111
+--[[
 
     Milenium Library
     -> Made by @finobe 
@@ -1922,7 +1922,7 @@
                 ignore = options.ignore or false;
                 items = {};
                 y_size;
-                seperator = options.seperator or options.Seperator;
+                seperator = options.seperator or options.Seperator or false;
             }   
 
             cfg.default = options.default or (cfg.multi and {cfg.items[1]}) or cfg.items[1] or "None"
