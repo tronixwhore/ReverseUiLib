@@ -1,5 +1,5 @@
 --[[
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+2222222222222222222222222222222222222222222222222222222222222222222222
     Milenium Library
     -> Made by @finobe 
     -> Kind of got bored idk what to do with life
@@ -1414,14 +1414,14 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
         end  
 
         function library:toggle(options) 
-
+            local rand = math.random(1, 2) 
             local cfg = {
                 enabled = options.enabled or nil,
                 name = options.name or "Toggle",
                 info = options.info or nil,
                 flag = options.flag or library:next_flag(),
                 
-                type = "toggle"
+                type = options.type and string.lower(options.type) or "toggle"; -- "toggle", "checkbox"
 
                 default = options.default or false,
                 folding = options.folding or false, 
